@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+<!-- Image-->
+
+    <img src="https://img.freepik.com/premium-photo/beautiful-cute-anime-girl-innocent-anime-teenage_744422-6819.jpg?w=740" height="300px" width="300px"/>
+
+<!--Unorderd List-->
+<ul>
+    <li>SLT</li>
+    <li>Dialog</li>
+</ul>
+
+<!--Ordered List-->
+
+<ol>
+    <li>SLT</li>
+    <li>Dialog</li>
+</ol>
+
+
+<!--Canvas Tag-->
+
+<h2>Canvas</h2>
+
+<canvas id="myCanvas" width="200" height="100" style="border: 1px solid #000;">
+    Your browser does not support the HTML canvas tag
+</canvas>
+<br></br>
+
+<!--SVG-Circle-->
+<h2>SVG</h2>
+<svg width="200" height="100">
+<circle cx="50" cy="50" r="40"
+stroke="green" stroke-width="4" fill="yellow"/>
+Sorry,Browser does nto support
+</svg>
+
+<!--SVG Square-->
+
+<svg width="400" height="180">
+    <rect x="50" y="20" rx="40" ry="20" width="150" height="150"
+    style="fill: red;stroke: black;stroke-width: 5;opacity: 0.5;"/>
+    Sorry,Browser does not support
+    </svg>
+
+
+  <!--Table-->  
+  <style>
+    table, th, td {
+      border:1px solid black;
+    }
+    </style>
+  <div>
+    <h2>Table</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>School</th>
+            
+        </tr>
+        <tr>
+            <td>Sanuri</td>
+            <td>27</td>
+            <td>Anula</td>
+        </tr>
+    </table>
+  </div>
+
+  <!--Form-->
+
+  <div>
+    <h2>Form</h2>
+
+    <Form>
+        <form action="/action_page.php">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" value="Sanuri"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" value="Himalka"><br><br>
+            <input type="submit" value="Submit">
+          </form> 
+    </Form>
+
+  </div>
+
+
+<!--Geo Location-->
+
+<div>
+    <h1>HTML Geolocation</h1>
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+<script>
+const x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+</div>
+
+    <footer>
+        <p>Author: sanuri <br>
+        <a href="sanurih@slt.com.lk"> Contact</a></p>
+    </footer>
+</body>
+</html>
