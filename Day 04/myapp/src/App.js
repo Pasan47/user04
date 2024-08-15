@@ -26,6 +26,9 @@ const changeName = () =>{
   });
 }
 
+const modifyStudent = () => {
+
+}
 
 
   return (
