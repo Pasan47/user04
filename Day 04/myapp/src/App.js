@@ -1,24 +1,46 @@
 import logo from './logo.svg';
 import './App.css';
+import Practice from './slt/Practice';
+import { useState } from 'react';
+
 
 function App() {
+
+const[color,setColor] = useState("Red")
+const[student,setStudent] = useState({
+  name:"John",
+  age :15,
+  grade : 10
+})
+
+// let color = "red";
+// const changeColor = () =>{
+//   color = "blue";
+// }
+const changeColor = () =>{
+  setColor("blue");
+}
+const changeName = () =>{
+  setStudent((prev) =>{
+    return {...prev, name: prev.name === "John"?"Pasan":"John"}
+  });
+}
+
+const modifyStudent = () => {
+
+}
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+   <p>I like color {color}</p>
+   <button onClick={changeColor}> change Color</button>
+
+   <p>{student.name} is {student.age} year old.</p>
+   <button onClick={changeName}> change Name</button>
+    
+  
+   </>
   );
 }
 
