@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.use("/api/tute",tute)
 
-app.use("/api/auth",tute)
+app.use("/api/auth",auth)
 
 
 
