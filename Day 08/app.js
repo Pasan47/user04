@@ -1,8 +1,10 @@
 const express = require("express")
+const cors = require("cors")
 
 const post = require("./post")
 const order = require("./order")
 const app = express();
+app.use(cors());
 
 app.use(express.json());
 //* For post

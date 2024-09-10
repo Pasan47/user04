@@ -36,6 +36,7 @@ const Post = mongoose.model("post",postSchema);
 router.post("/addPost",async(req,res)=>
 {
     try{
+        console.log("Today's work");
         await connectToDatabase();
         const newPost = new Post(req.body);
         await newPost.save();
