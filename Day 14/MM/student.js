@@ -1,19 +1,14 @@
+// This file is for authentication --> api/auth
+
+//jwt.io
+
 const express = require("express");
-const connectToDatabase = require("./db")
-const {mongoose} = require("mongoose")
-const jwt =require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
 
-require("dotenv").config();
+require("dotenv").config()
 
+const router = express.Router();
 
-const router = express.Router()
-
-
-
-
-//!POSTMAN
-
-//*pass data
 router.post("/login", async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
@@ -23,7 +18,7 @@ router.post("/login", async (req, res) => {
         password: password
     }
 
-    const accessToken = jwt.sign(user, process.env.TOKEN_KEY, {expiresIn: "10s"});
+    const accessToken = jwt.sign(user, process.env.TOKEN_KEY, {expiresIn: "1000s"});
     const refreshToken = jwt.sign(user, process.env.RE_TOKEN_KEY, {expiresIn: "24h"});
 
 
@@ -35,12 +30,11 @@ router.post("/login", async (req, res) => {
     res.cookie("accessToken", accessToken, {httpOnly:true});
     res.cookie("refreshToken", refreshToken, {httpOnly:true});
 
+   
     res.json({ accessToken, refreshToken }); // Respond with tokens
 
 
 });
-
-
 
 // Create an access token through refresh token when access token is exprired
 
@@ -62,5 +56,14 @@ router.post("/token", (req, res) => {
     });
 });
 
+// Remove refresh token from the http only cookie when logout
+
+router.delete("/logout", (req, res) => {
+
+    res.clearCookie("accessToken", { httpOnly: true });
+    res.clearCookie("refreshToken", { httpOnly: true });
+
+    res.json({  "message" : "deleted successfully" }); // Respond with new access token
+})
 
 module.exports = router;
